@@ -24,7 +24,7 @@ soup = bs4.BeautifulSoup(text, features='html.parser')
 
 # all_articles = soup.find_all('div', class_="tm-article-body tm-article-snippet__lead")
 
-x = []
+# x = []
 #
 # for article in all_articles:
 #     time = article.find('span', class_="tm-article-snippet__datetime-published")
@@ -36,7 +36,6 @@ x = []
 #             if article_text.text not in x:
 #                 x.append(article_text.text)
 # print(x)
-
 
 all_articles = soup.find_all('article')
 
@@ -52,33 +51,9 @@ for article in all_articles:
             a_tag = article.find('a')
             href = a_tag.attrs['href']
             url = 'https://habr.com' + href
-            x.append(article_text.text)
 
             print(f'<{time.text}> <{article_text.text}> <{url}>')
 
-
-
-
-
-
-
-
-
-
-
-# for article in all_articles:
-#     for words in KEYWORDS:
-#         article_text = article.find('div', class_="article-formatted-body article-formatted-body_version-2")
-#         if article_text == None:
-#             article_text = article.find('div', class_="article-formatted-body article-formatted-body_version-1")
-#             if article_text.text.find(f'{words}') != 1:
-#                 if article_text.text not in x:
-#                     x.append(article_text.text)
-#         else:
-#             if article_text.text.find(f'{words}') != 1:
-#                 if article_text.text not in x:
-#                     x.append(article_text.text)
-# news = soup.find_all('article')
 # def news_news(KEYWORDS):
 #     NEW_KEYWORDS = set(KEYWORDS)
 #     for new in news:
